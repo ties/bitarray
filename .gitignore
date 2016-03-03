@@ -1,3 +1,11 @@
 .python-version
 __pycache__
 *.pyc
+
+# Packages
+*.egg
+*.egg-info
+
+# Unit test artifacts
+.tox
+.cache

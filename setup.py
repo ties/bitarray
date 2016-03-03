@@ -1,14 +1,8 @@
 import os
-import uuid
 
 from setuptools import setup
 
-from pip.req import parse_requirements
-
-# noqa from <http://stackoverflow.com/questions/14399534/how-can-i-reference-requirements-txt-for-the-install-requires-kwarg-in-setuptool>
-install_reqs = parse_requirements('requirements.txt', session=uuid.uuid1())
-
-reqs = [str(ir.req) for ir in install_reqs]
+REQUIREMENTS = []
 
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
@@ -28,11 +22,11 @@ setup(
     license="BSD",
     keywords="bitarray bit manipulation",
     packages=['bitarray'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
         "License :: OSI Approved :: BSD License",
     ],
-    install_requires=reqs
+    install_requires=REQUIREMENTS
 )

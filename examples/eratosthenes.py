@@ -22,4 +22,3 @@ for x in range(2, MAX):
 
 primes = [idx for (idx, bit) in enumerate(bits) if bit]
 print(primes)
-

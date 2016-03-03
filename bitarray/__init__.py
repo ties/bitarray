@@ -1,10 +1,19 @@
-class BitArray(object):
-    """
-    A simple implementation of an array of bits, accessable using the regular
-    item access syntax.
-    """
+from typing import Iterable
 
-    def __init__(self, length, default=False):
+
+class BitArray(object):
+    """A simple implementation of an array of bits, accessable using the
+    regular item access syntax.
+    """
+    __slots__ = ('length', 'data')
+
+    def __init__(self, length: int, default: bool=False):
+        """Initialise a BitArray with a given length and default values
+
+        Args:
+          length: (minimum) length of the array
+          default: the value bits should be initialised to
+        """
         self.length = length
         byte_length = (length // 8) + 1
 
@@ -13,10 +22,10 @@ class BitArray(object):
         else:
             self.data = bytearray(byte_length)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: int) -> bool:
         return bool((self.data[key // 8] >> (key % 8)) & 1)
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: int, value: bool) -> None:
         raw = self.data[key // 8]
         set_val = bool(value) << (key % 8)
 
@@ -25,13 +34,14 @@ class BitArray(object):
 
         self.data[key // 8] = updated
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.length
 
-    def __iter__(self):
-        for b in self.data:
+    def __iter__(self) -> Iterable[int]:
+        for idx, byte in enumerate(self.data):
             for i in range(8):
-                yield bool((1 << i) & b)
+                if (8*idx)+i < self.length:
+                    yield bool((1 << i) & byte)
 
     def __repr__(self):
-        return self.data.hex()
+        return self.data.hex()[0:(self.length // 4) + 1]
