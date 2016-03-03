@@ -1,3 +1,7 @@
+bitarray
+========
+[![Build Status](https://travis-ci.org/ties/bitarray.svg?branch=master)](https://travis-ci.org/ties/bitarray)
+
 This repository contains a simple bit array implementation, in python. It
 contains only some basic features.
 
