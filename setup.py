@@ -19,14 +19,14 @@ setup(
     author="Ties de Kock",
     author_email="ties@tiesdekock.nl",
     description=("A simple bitarray"),
-    license="BSD",
+    license="MIT",
     keywords="bitarray bit manipulation",
     packages=find_packages(exclude=['examples', 'tests', 'tests.*']),
     long_description=read('README.md'),
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Topic :: Utilities",
-        "License :: OSI Approved :: BSD License",
+        "Development Status :: 4 - Beta",
+        "Topic :: Software Development :: Libraries",
+        "License :: OSI Approved :: MIT License",
     ],
     install_requires=REQUIREMENTS
 )

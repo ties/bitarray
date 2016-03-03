@@ -1,7 +1,11 @@
-from typing import Iterable
+"""
+BitArray class
+<https://github.com/ties/bitarray>
+"""
 
 
 class BitArray(object):
+    # pylint: disable=too-few-public-methods
     """A simple implementation of an array of bits, accessable using the
     regular item access syntax.
     """
@@ -37,7 +41,8 @@ class BitArray(object):
     def __len__(self) -> int:
         return self.length
 
-    def __iter__(self) -> Iterable[int]:
+    def __iter__(self):
+        # type: () -> Iterable[int]:
         for idx, byte in enumerate(self.data):
             for i in range(8):
                 if (8*idx)+i < self.length:
